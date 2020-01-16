@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     end
     
     # delete a post
-    def delete
+    def destroy
         @post.destroy
         redirect_to root_path, notice: "The post was deleted."
     end
