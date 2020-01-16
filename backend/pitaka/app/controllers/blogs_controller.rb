@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# actions related with Blogs
 class BlogsController < ApplicationController
   # list blogs
   def index

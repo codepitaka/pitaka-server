@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # actions related with Posts
-
 class PostsController < ApplicationController
   # before_action will be triggered only before show, edit, update, destroy
   before_action :find_post, only: %i[show edit update destroy]

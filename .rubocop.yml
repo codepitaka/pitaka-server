@@ -7,11 +7,14 @@ require:
 
 AllCops:
   Exclude:
-    - 'vendor/**/*'
-    - 'spec/fixtures/**/*'
-    - 'tmp/**/*'
+    - '**/vendor/**/*'
+    - '**/spec/fixtures/**/*'
+    - '**/tmp/**/*'
     - '.git/**/*'
-  TargetRubyVersion: 2.3
+    - '**/node_modules/**/*'
+    - '**/db/**/*'
+    - '**/bin/**/*'
+  TargetRubyVersion: 2.6.3
 
 Naming/PredicateName:
   # Method define macros for dynamically generated method.
@@ -57,7 +60,7 @@ Layout/TrailingWhitespace:
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
-    - 'spec/**/*.rb'
+    - '**/spec/**/*.rb'
 
 Layout/HashAlignment:
   EnforcedHashRocketStyle:
@@ -67,9 +70,12 @@ Layout/HashAlignment:
     - key
     - table
 
+Layout/LineLength:
+  Max: 120
+
 Lint/InterpolationCheck:
   Exclude:
-    - 'spec/**/*.rb'
+    - '**/spec/**/*.rb'
 
 Lint/UselessAccessModifier:
   MethodCreatingMethods:
@@ -81,9 +87,9 @@ Lint/BooleanSymbol:
 
 Metrics/BlockLength:
   Exclude:
-    - 'Rakefile'
+    - '**/Rakefile'
     - '**/*.rake'
-    - 'spec/**/*.rb'
+    - '**/spec/**/*.rb'
     - '**/*.gemspec'
 
 Metrics/ClassLength:
@@ -92,7 +98,7 @@ Metrics/ClassLength:
 
 Metrics/ModuleLength:
   Exclude:
-    - 'spec/**/*.rb'
+    - '**/spec/**/*.rb'
 
 RSpec/PredicateMatcher:
   EnforcedStyle: explicit
@@ -102,3 +108,12 @@ RSpec/MessageSpies:
 
 RSpec/NestedGroups:
   Max: 7
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: false
