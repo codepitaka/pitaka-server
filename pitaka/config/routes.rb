@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   7. DELETE /posts/:id matches the posts#destroy action
   """
   resources :posts
-  # manual example > get '/posts',          to: 'posts#index'
+  # manual example1 > get '/posts',          to: 'posts#index'
   # manual example2 > delete '/posts/:id',  to: 'posts#destroy'
+
+  get '/blogs',         to: 'blogs#index'
 end
