@@ -1,6 +1,9 @@
 # actions related with Posts
 
 class PostsController < ApplicationController
+    # before_action will be triggered only before show, edit, update, destroy
+    before_action :find_post, only: [:show, :edit, :update, :destroy]
+
     # list posts
     def index
         # all posts
