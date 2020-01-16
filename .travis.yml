@@ -1,0 +1,19 @@
+notifications:
+  webhooks: https://coveralls.io/webhook
+
+matrix:
+  include:
+  - language: ruby
+    rvm:
+      - 2.6.3
+    dist: trusty
+    services:
+      - postgresql
+    env:
+      - COVERALLS_PARALLEL=true
+    before_script:
+      - psql -c 'CREATE DATABASE pitaka_test;' -U postgres
+      - cd backend/pitaka
+    script:
+      - bundle exec rails db:migrate RAILS_ENV=test
+      - bundle exec rspec
