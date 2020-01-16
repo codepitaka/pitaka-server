@@ -1,2 +1,3 @@
 # instead of ERB(embedded Ruby), use Jbuilder to generate a JSON response
-json.data @post # @posts from 'app/controllers/posts_controllers'
+# file name 'show' should be correct
+json.data @post # @post from 'app/controllers/posts_controllers'
