@@ -8,11 +8,13 @@ class PostsController < ApplicationController
     def index
         # all posts
         @posts = Post.all
+        render "index.json"
     end
 
     # show one post
     # 'before_action' filter will find the post with ':id'
     def show
+        render "show.json"
     end
 
     def new
