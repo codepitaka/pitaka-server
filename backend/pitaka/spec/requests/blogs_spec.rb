@@ -12,7 +12,7 @@ describe 'APIs related with blogs', type: :request do
 
     get '/blogs/'
 
-    expect(response.has_http_status?(:success)).to be(true)
+    expect(response.status).to be(200)
     expect(JSON.parse(response.body)['data'].size).to eq(3)
     expect(JSON.parse(response.body)['data'][0]['title']).to eq('test blog 1')
   end
