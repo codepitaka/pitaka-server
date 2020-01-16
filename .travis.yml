@@ -10,10 +10,14 @@ matrix:
       - postgresql
     env:
       - COVERALLS_PARALLEL=true
-    before_script:
+    addons:
+      postgresql: "9.4"
+    before_install:
       - psql -c 'CREATE DATABASE pitaka_test;' -U postgres
-      - cd backend/pitaka
+    install:
       - bundle install
+    before_script:
+      - cd backend/pitaka
     script:
       - bundle exec rails db:migrate RAILS_ENV=test
       - bundle exec rspec
