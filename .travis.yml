@@ -1,4 +1,5 @@
 notifications:
+  slack: pitakaworkspace:8Pde05x9c4PsdXHp6nWaZMCY
   webhooks: https://coveralls.io/webhook
 
 matrix:

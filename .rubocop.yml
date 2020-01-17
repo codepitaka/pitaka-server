@@ -107,7 +107,7 @@ RSpec/MessageSpies:
   EnforcedStyle: have_received
 
 RSpec/NestedGroups:
-  Max: 7
+  Max: 3
 
 RSpec/ExampleLength:
   Enabled: false
