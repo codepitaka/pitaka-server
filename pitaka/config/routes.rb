@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -9,10 +11,9 @@ Rails.application.routes.draw do
   # 5. POST /posts matches the posts#create action
   # 6. PATCH or PUT /posts/:id matches the posts#update action
   # 7. DELETE /posts/:id matches the posts#destroy action
-
   resources :posts
   # manual example1 > get '/posts',          to: 'posts#index'
   # manual example2 > delete '/posts/:id',  to: 'posts#destroy'
 
-  get '/blogs',         to: 'blogs#index'
+  get '/blogs', to: 'blogs#index'
 end
