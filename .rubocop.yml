@@ -104,7 +104,7 @@ RSpec/PredicateMatcher:
   EnforcedStyle: explicit
 
 RSpec/MessageSpies:
-  EnforcedStyle: receive
+  EnforcedStyle: have_received
 
 RSpec/NestedGroups:
   Max: 7
