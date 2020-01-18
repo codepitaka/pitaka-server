@@ -1,0 +1,20 @@
+notifications:
+  slack: pitakaworkspace:8Pde05x9c4PsdXHp6nWaZMCY
+  webhooks: https://coveralls.io/webhook
+
+language: ruby
+rvm: 2.6.3
+dist: trusty
+services:
+  - postgresql
+addons:
+  postgresql: "9.4"
+before_install:
+  - psql -c 'CREATE DATABASE pitaka_test;' -U postgres
+  - cd pitaka
+install:
+  - bundle install
+script:
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rspec
+  - bundle exec rubocop
