@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rspec'
+  gem 'coveralls', require: false
 end
 
 group :development do
