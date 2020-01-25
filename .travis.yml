@@ -11,7 +11,6 @@ addons:
   postgresql: "9.4"
 before_install:
   - psql -c 'CREATE DATABASE pitaka_test;' -U postgres
-  - cd pitaka
 install:
   - bundle install
 script:
