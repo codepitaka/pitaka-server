@@ -228,6 +228,8 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/spec/factories/snippets.rb": [
+        null,
+        null,
         1,
         1,
         1,
@@ -238,6 +240,8 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/spec/factories/user_blogs.rb": [
+        null,
+        null,
         1,
         1,
         1,
@@ -247,6 +251,8 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/spec/factories/users.rb": [
+        null,
+        null,
         1,
         1,
         1,
@@ -299,6 +305,8 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/spec/models/snippet_spec.rb": [
+        null,
+        null,
         1,
         null,
         1,
@@ -306,6 +314,9 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/app/models/snippet.rb": [
+        null,
+        null,
+        null,
         1,
         1,
         1,
@@ -321,6 +332,8 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/spec/models/user_blog_spec.rb": [
+        null,
+        null,
         1,
         null,
         1,
@@ -328,6 +341,9 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/app/models/user_blog.rb": [
+        null,
+        null,
+        null,
         1,
         1,
         1,
@@ -336,6 +352,8 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/spec/models/user_spec.rb": [
+        null,
+        null,
         1,
         null,
         1,
@@ -343,8 +361,12 @@
         null
       ],
       "/Users/dan/Documents/pitaka/pitaka-server/app/models/user.rb": [
+        null,
+        null,
+        null,
         1,
         1,
+        null,
         1,
         1,
         1,
@@ -514,6 +536,6 @@
         null
       ]
     },
-    "timestamp": 1580007731
+    "timestamp": 1580008301
   }
 }
