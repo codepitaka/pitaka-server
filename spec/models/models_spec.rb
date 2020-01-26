@@ -21,6 +21,16 @@ describe 'testing multiple models and their relationship' do
     expect(blog.users.first).to eq(user)
   end
 
+  it 'create a user and authenticate' do
+    user = User.create(name: 'test', email: 'test@pitaka.com',
+                       password: '1234', password_confirmation: '1234')
+    # wrong password
+    expect(user.authenticate('4321')).to be(false)
+
+    # correct password (log in)
+    expect(user.authenticate('1234')).to be(user)
+  end
+
   it 'create a blog, a post and a snippet and connect them' do
     blog = Blog.create(title: 'test blog')
     post = Post.create(title: 'test post', subtitle: 'testing',
