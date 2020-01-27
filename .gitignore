@@ -31,3 +31,6 @@ yarn-debug.log*
 .yarn-integrity
 
 app/assets/stylesheets/*.scss
+
+# Coveralls
+/coverage
