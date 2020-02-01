@@ -5,8 +5,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.hosts.push 'pitaka-web.herokuapp.com'
-  config.web_console.whiny_requests = false
+  require_relative 'available_hosts'
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
