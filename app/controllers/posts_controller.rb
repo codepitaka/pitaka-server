@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # before_action will be triggered only before show, edit, update, destroy
   before_action :find_post, only: %i[show edit update destroy]
   skip_before_action :verify_authenticity_token
-	
+
   # list posts
   def index
     # all posts
@@ -26,15 +26,15 @@ class PostsController < ApplicationController
   # create a new post
   def create
     # 'new' initializes a new instance of the model
-	# 'post_params' supplies params from frontend
+    # 'post_params' supplies params from frontend
     @post = Post.new(post_params)
-	# add blog_id to post manually
-	# TODO, blog_id should be get from post_params header? or so. Not Manually like code below.
-	@post.blog_id = 1
+    # add blog_id to post manually
+    # TODO, blog_id should be get from post_params header? or so. Not Manually like code below.
+    @post.blog_id = 1
     if @post.save! # if the object get saved
-      render 'create.json' #, notice: 'The new post was created.'
+      render 'create.json' # , notice: 'The new post was created.'
     else
-	  @post.errors.full_messages
+      @post.errors.full_messages
       # render 'index.json' #, notice: 'The new post was created.'
     end
   end
@@ -45,9 +45,9 @@ class PostsController < ApplicationController
   # edit a post
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'The post was updated.'
+      render 'update.json'
     else
-      render 'edit'
+      @post.errors.full_messages
     end
   end
 
