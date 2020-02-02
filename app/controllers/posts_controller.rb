@@ -61,7 +61,7 @@ class PostsController < ApplicationController
 
   # require specified params
   def post_params
-    params.require(:post).permit(:title, :subtitle, :content)
+    params.require(:post).permit(:title, :subtitle, :content, :published)
   end
 
   # extract blog id from params
