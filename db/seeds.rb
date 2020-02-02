@@ -9,6 +9,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # if violates validation of '/app/models/blog.rb' or '/app/models/post.rb', 'rake db:seed' won't work
-Blog.create(title: 'My blog')
-Post.create(title: 'My first post', subtitle: 'yeah!', content: 'Pitaka', blog_id: 1) # blog_id should refer to id of the existing blog
-Post.create(title: 'My second post', subtitle: 'cheer up', content: 'Tripitaka', blog_id: 1)
+blog = Blog.create(title: 'My blog')
+
+Post.create(title: 'My first post', subtitle: 'first subtitle',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    blog_id: blog.id, published: true) # blog_id should refer to id of the existing blog
+Post.create(title: 'My second post', subtitle: 'second subtitle',
+    content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    blog_id: blog.id, published: true)
+
+Post.create(title: 'My third post', subtitle: 'draft one',
+    content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+    blog_id: blog.id, published: false)
+Post.create(title: 'My fourth post', subtitle: 'draft two',
+    content: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    blog_id: blog.id, published: false)

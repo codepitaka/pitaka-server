@@ -12,6 +12,18 @@ class PostsController < ApplicationController
     render 'index.json'
   end
 
+  # list published posts
+  def published
+    @posts = Post.where(published: true)
+    render 'index.json'
+  end
+
+  # list draft posts
+  def draft
+    @posts = Post.where(published: false)
+    render 'index.json'
+  end
+
   # show one post
   # 'before_action' filter will find the post with ':id'
   def show

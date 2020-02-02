@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   # 5. POST /posts matches the posts#create action
   # 6. PATCH or PUT /posts/:id matches the posts#update action
   # 7. DELETE /posts/:id matches the posts#destroy action
-  resources :posts
+  resources :posts do
+    get 'published', on: :collection
+    get 'draft', on: :collection
+  end
   # manual example1 > get '/posts',          to: 'posts#index'
   # manual example2 > delete '/posts/:id',  to: 'posts#destroy'
 
