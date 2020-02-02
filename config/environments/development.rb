@@ -7,7 +7,8 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
-  require_relative 'available_hosts'
+  require_relative 'permitted_hosts'
+  PermittedHosts.development()
   config.web_console.whiny_requests = false
   # Do not eager load code on boot.
   config.eager_load = false

@@ -5,7 +5,8 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  require_relative 'available_hosts'
+  require_relative 'permitted_hosts'
+  PermittedHosts.production()
   # config.web_console.whiny_requests = false
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
