@@ -4,7 +4,6 @@
 class PostsController < ApplicationController
   # before_action will be triggered only before show, edit, update, destroy
   before_action :find_post, only: %i[show edit update destroy]
-  # skip_before_action :verify_authenticity_token
 
   # list posts
   def index
