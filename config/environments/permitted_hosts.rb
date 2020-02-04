@@ -6,19 +6,18 @@ module PermittedHosts
     Rails.application.configure do
       # local environment hosts
       # TODO for DAVIN: add your local host.
-      config.hosts.push 'port-3000-pitaka.run.goorm.io', 'pitaka-jnclz.run.goorm.io'
+      config.hosts.push 'port-3000-pitaka.run.goorm.io'
       # heroku review app hosts
-      config.hosts.push 'pitaka-web-page-edit-we5mit4np.herokuapp.com',
-                        'pitaka-serve-publish-ap-qc2c9q.herokuapp.com'
+      config.hosts.push 'pitaka-serve-publish-ap-qc2c9q.herokuapp.com'
       # heroku dev app hosts
-      config.hosts.push 'pitaka-web-dev.herokuapp.com', 'pitaka-server-dev.herokuapp.com'
+      config.hosts.push 'pitaka-server-dev.herokuapp.com'
     end
   end
 
   def self.production
     Rails.application.configure do
       # heroku prd app hosts
-      config.hosts.push 'pitaka-web.herokuapp.com', 'pitaka-server.herokuapp.com'
+      config.hosts.push 'pitaka-server.herokuapp.com'
     end
   end
 
