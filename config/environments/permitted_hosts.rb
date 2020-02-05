@@ -7,12 +7,14 @@ module PermittedHosts
       # local/heroku's pitaka-server develop environment hosts
       config.hosts.push ENV['PITAKA_SERVER_HOST']
       # heroku's pitaka review app hosts
-      if !ENV['HEROKU_PR_NUMBER'] == ''
-        review_app_name = ENV['HEROKU_APP_NAME']
-        review_app_host = review_app_name + '.herokuapp.com'
-        puts review_app_host
-        config.hosts.push review_app_host
-      end
+      puts ENV['HEROKU_PR_NUMBER']
+      puts ENV['HEROKU_APP_NAME']
+      # if !ENV['HEROKU_PR_NUMBER'] == ''
+      #   review_app_name = ENV['HEROKU_APP_NAME']
+      #   review_app_host = review_app_name + '.herokuapp.com'
+      #   puts review_app_host
+      #   config.hosts.push review_app_host
+      # end
     end
   end
 
