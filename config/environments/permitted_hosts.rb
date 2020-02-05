@@ -4,40 +4,48 @@
 module PermittedHosts
   def self.development
     Rails.application.configure do
-      # local/heroku's pitaka-server develop environment hosts
-      config.hosts.push ENV['PITAKA_SERVER_HOST']
-	  puts "Hello, logs!"
-      # heroku's pitaka review app hosts
-      if !(ENV['HEROKU_PR_NUMBER'] == '')
-        ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
-        config.hosts.push ENV['PITAKA_SERVER_HOST']
-      end
+      host_dev = server_host_for_app
+      config.hosts.push host_dev
     end
   end
 
   def self.production
     Rails.application.configure do
-      # heroku's pitaka-server production environment hosts
-      config.hosts.push ENV['PITAKA_SERVER_HOST']
-	  puts "Hello, logs prd!"
-      # heroku's pitaka review app hosts
-      if !(ENV['HEROKU_PR_NUMBER'] == '')
-        ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
-        config.hosts.push ENV['PITAKA_SERVER_HOST']
-      end
+      host_prd = server_host_for_app
+      config.hosts.push host_prd
     end
   end
 
   def self.test
     Rails.application.configure do
-      # test environment hosts: necessary for rspec
-      config.hosts.push 'www.example.com'
-	  puts "Hello, logs test!"
-      # heroku's pitaka review app hosts
-      if !(ENV['HEROKU_PR_NUMBER'] == '')
-        ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
-        config.hosts.push ENV['PITAKA_SERVER_HOST']
-      end
+      host_rspec = server_host_for_rspec
+      config.hosts.push host_rspec
+
+      host_review = server_host_for_review_app
+      config.hosts.push host_review
     end
   end
+end
+
+def server_host_for_app
+  raise 'Environment variable PITAKA_SERVER_HOST not found.' if ENV['PITAKA_SERVER_HOST'].nil?
+
+  host = ENV['PITAKA_SERVER_HOST']
+  host
+rescue StandardError
+  warn "Error #{e.message}!"
+end
+
+def server_host_for_review_app
+  raise 'Environment variable HEROKU_PR_NUMBER not found.' if ENV['HEROKU_PR_NUMBER'].nil?
+
+  ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
+  host = ENV['PITAKA_SERVER_HOST']
+  host
+rescue StandardError
+  warn "Error #{e.message}!"
+end
+
+def server_host_for_rspec
+  'www.example.com'
 end
