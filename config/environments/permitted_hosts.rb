@@ -32,8 +32,8 @@ def server_host_for_app
 
   host = ENV['PITAKA_SERVER_HOST']
   host
-rescue StandardError
-  warn "Error #{e.message}!"
+rescue StandardError => e
+  warn "[Environment Variable Warning] : #{e.message}!"
 end
 
 def server_host_for_review_app
@@ -42,8 +42,8 @@ def server_host_for_review_app
   ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
   host = ENV['PITAKA_SERVER_HOST']
   host
-rescue StandardError
-  warn "Error #{e.message}!"
+rescue StandardError => e
+  warn "[Environment Variable Warning] : #{e.message}"
 end
 
 def server_host_for_rspec
