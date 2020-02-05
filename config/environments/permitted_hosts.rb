@@ -4,26 +4,27 @@
 module PermittedHosts
   def self.development
     Rails.application.configure do
-      # local environment hosts
-      # TODO for DAVIN: add your local host.
-      config.hosts.push 'port-3000-pitaka.run.goorm.io'
-      # heroku review app hosts
-      config.hosts.push 'pitaka-serve-publish-ap-qc2c9q.herokuapp.com'
-      # heroku dev app hosts
-      config.hosts.push 'pitaka-server-dev.herokuapp.com'
+      # local/heroku's pitaka-server develop environment hosts
+      config.hosts.push ENV['PITAKA_SERVER_HOST']
+      # heroku's pitaka review app hosts
+      if !ENV['HEROKU_PR_NUMBER'] == ''
+        review_app_name = ENV['HEROKU_APP_NAME']
+        review_app_host = review_app_name + '.herokuapp.com'
+        config.hosts.push review_app_host
+      end
     end
   end
 
   def self.production
     Rails.application.configure do
-      # heroku prd app hosts
-      config.hosts.push 'pitaka-server.herokuapp.com'
+      # heroku's pitaka-server production environment hosts
+      config.hosts.push ENV['PITAKA_SERVER_HOST']
     end
   end
 
   def self.test
     Rails.application.configure do
-      # test environment hosts
+      # test environment hosts: necessary for rspec
       config.hosts.push 'www.example.com'
     end
   end
