@@ -29,12 +29,11 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     # add blog_id to post manually
     # TODO, blog_id should be get from post_params header? or so. Not Manually like code below.
-    @post.blog_id = 1
-    if @post.save! # if the object get saved
-      render 'create.json' # , notice: 'The new post was created.'
+    
+    if @post.save!
+      render 'create.json'
     else
       @post.errors.full_messages
-      # render 'index.json' #, notice: 'The new post was created.'
     end
   end
 
@@ -60,7 +59,7 @@ class PostsController < ApplicationController
 
   # require specified params
   def post_params
-    params.require(:post).permit(:title, :subtitle, :content, :published)
+    params.require(:post).permit(:title, :subtitle, :content, :blog_id)
   end
 
   # extract blog id from params
