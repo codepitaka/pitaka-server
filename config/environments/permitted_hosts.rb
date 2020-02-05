@@ -7,7 +7,7 @@ module PermittedHosts
       # local/heroku's pitaka-server develop environment hosts
       config.hosts.push ENV['PITAKA_SERVER_HOST']
       # heroku's pitaka review app hosts
-      if !ENV['HEROKU_PR_NUMBER'] == ''
+      if !(ENV['HEROKU_PR_NUMBER'] == '')
         ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
         config.hosts.push ENV['PITAKA_SERVER_HOST']
       end
