@@ -6,6 +6,7 @@ module PermittedHosts
     Rails.application.configure do
       # local/heroku's pitaka-server develop environment hosts
       config.hosts.push ENV['PITAKA_SERVER_HOST']
+	  puts "Hello, logs!"
       # heroku's pitaka review app hosts
       if !(ENV['HEROKU_PR_NUMBER'] == '')
         ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
