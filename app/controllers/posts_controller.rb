@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     # TODO, blog_id validation with user_blogs table
-	
+
     if @post.save!
       render 'create.json'
     else
@@ -42,9 +42,9 @@ class PostsController < ApplicationController
 
   # edit a post
   def update
-	# TODO, post_id validation with posts table
-	# TODO, blog_id validation with user_blogs table
-	  
+    # TODO, post_id validation with posts table
+    # TODO, blog_id validation with user_blogs table
+
     if @post.update(post_params)
       render 'update.json'
     else
