@@ -27,9 +27,9 @@ class PostsController < ApplicationController
     # 'new' initializes a new instance of the model
     # 'post_params' supplies params from frontend
     @post = Post.new(post_params)
-    # add blog_id to post manually
-    # TODO, blog_id should be get from post_params header? or so. Not Manually like code below.
 
+    # TODO, blog_id validation with user_blogs table
+	
     if @post.save!
       render 'create.json'
     else
@@ -42,6 +42,9 @@ class PostsController < ApplicationController
 
   # edit a post
   def update
+	# TODO, post_id validation with posts table
+	# TODO, blog_id validation with user_blogs table
+	  
     if @post.update(post_params)
       render 'update.json'
     else
@@ -59,7 +62,7 @@ class PostsController < ApplicationController
 
   # require specified params
   def post_params
-    params.require(:post).permit(:title, :subtitle, :content, :blog_id)
+    params.require(:post).permit(:title, :subtitle, :content, :blog_id, :published)
   end
 
   # extract blog id from params
