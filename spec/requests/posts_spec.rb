@@ -19,7 +19,6 @@ describe '[Testing Every API Requests On Posts Table]:', type: :request do
     get '/posts/'
 
     expect(response.status).to be(200)
-    puts JSON.parse(response.body)['data']
     expect(JSON.parse(response.body)['data'].size).to eq(2)
 
     expect(JSON.parse(response.body)['data'][0]['title']).to eq('test post 1')
@@ -68,7 +67,7 @@ describe '[Testing Every API Requests On Posts Table]:', type: :request do
 
     expect(response.status).to be(200)
 
-    expect(JSON.parse(response.body)['id']).to eq(3)
+    expect(JSON.parse(response.body)['id']).to eq(post2.id+1)
   end
 
   it '`PATCH /posts/:id` should update data with params, then return id of the created post.' do
