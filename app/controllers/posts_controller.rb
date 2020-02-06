@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     # add blog_id to post manually
     # TODO, blog_id should be get from post_params header? or so. Not Manually like code below.
-    
+
     if @post.save!
       render 'create.json'
     else
