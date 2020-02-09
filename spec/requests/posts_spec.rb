@@ -15,7 +15,7 @@ describe '[Testing Every API Requests On Posts Table]:', type: :request do
     Post.create(title: 'test post 2', subtitle: 'subtitle2', content: 'c2', blog_id: blog.id, published: true)
   end
 
-  it '`GET /posts/` should return every data in database.' do
+  it '`GET /posts/` should return every post in database.' do
     get '/posts/'
 
     expect(response.status).to be(200)
@@ -32,6 +32,34 @@ describe '[Testing Every API Requests On Posts Table]:', type: :request do
     expect(JSON.parse(response.body)['data'][1]['content']).to eq('c2')
     expect(JSON.parse(response.body)['data'][1]['blog_id']).to eq(1)
     expect(JSON.parse(response.body)['data'][1]['published']).to eq(true)
+  end
+
+  it '`GET /posts/draft/` should return every draft post in database.' do
+    get '/posts/draft/'
+
+    expect(response.status).to be(200)
+    expect(JSON.parse(response.body)['data'].size).to eq(1)
+
+    draft_post = JSON.parse(response.body)['data'][0]
+
+    expect(draft_post['title']).to eq('test post 1')
+    expect(draft_post['subtitle']).to eq('subtitle1')
+    expect(draft_post['content']).to eq('c1')
+    expect(draft_post['published']).to eq(false)
+  end
+
+  it '`GET /posts/published/` should return every published post in database.' do
+    get '/posts/published/'
+
+    expect(response.status).to be(200)
+    expect(JSON.parse(response.body)['data'].size).to eq(1)
+
+    published_post = JSON.parse(response.body)['data'][0]
+
+    expect(published_post['title']).to eq('test post 2')
+    expect(published_post['subtitle']).to eq('subtitle2')
+    expect(published_post['content']).to eq('c2')
+    expect(published_post['published']).to eq(true)
   end
 
   it '`GET /posts/:id` should return the data called with id.' do
