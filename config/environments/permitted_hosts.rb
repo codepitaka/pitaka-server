@@ -29,7 +29,7 @@ end
 
 def server_host_for_app
   raise 'Environment variable PITAKA_SERVER_HOST not found.' if ENV['PITAKA_SERVER_HOST'].nil?
-  puts ENV['PITAKA_SERVER_HOST']
+
   host = ENV['PITAKA_SERVER_HOST']
   host
 rescue StandardError => e
