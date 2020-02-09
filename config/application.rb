@@ -20,8 +20,8 @@ module Pitaka
     # }
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-	    # origins Rails.application.credentials[Rails.env.to_sym][:allowed_origins]
-		origins '*'
+	    origins Rails.application.credentials[Rails.env.to_sym][:allowed_origins]
+		# origins '*'
         resource '*',
     	headers: ['Content-Type'],
 		credentials: false,
