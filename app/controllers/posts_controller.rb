@@ -37,12 +37,15 @@ class PostsController < ApplicationController
   # create a new post
   def create
     # 'new' initializes a new instance of the model
-    @post = Post.new(post_params) # 'post_params' supplies params from frontend
+    # 'post_params' supplies params from frontend
+    @post = Post.new(post_params)
 
-    if @post.save # if the object get saved
-      redirect_to @post, notice: 'The new post was created.'
+    # TODO, blog_id validation with user_blogs table
+
+    if @post.save!
+      render 'create.json'
     else
-      render 'new'
+      @post.errors.full_messages
     end
   end
 
@@ -51,10 +54,13 @@ class PostsController < ApplicationController
 
   # edit a post
   def update
+    # TODO, post_id validation with posts table
+    # TODO, blog_id validation with user_blogs table
+
     if @post.update(post_params)
-      redirect_to @post, notice: 'The post was updated.'
+      render 'update.json'
     else
-      render 'edit'
+      @post.errors.full_messages
     end
   end
 
@@ -68,7 +74,7 @@ class PostsController < ApplicationController
 
   # require specified params
   def post_params
-    params.require(:post).permit(:title, :subtitle, :content)
+    params.require(:post).permit(:title, :subtitle, :content, :blog_id, :published)
   end
 
   # extract blog id from params
