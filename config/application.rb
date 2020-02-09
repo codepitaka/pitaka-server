@@ -20,8 +20,13 @@ module Pitaka
     # }
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
-        resource '*', headers: :any, methods: %i[get post patch options]
+	    # origins Rails.application.credentials[Rails.env.to_sym][:allowed_origins]
+		origins '*'
+        resource '*',
+    	headers: ['Content-Type'],
+		credentials: false,
+		max_age: 86400,
+    	methods: [:get, :post, :patch, :options, :delete, :put]  
       end
     end
 
