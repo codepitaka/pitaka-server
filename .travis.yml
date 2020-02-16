@@ -1,19 +1,20 @@
 notifications:
   slack: pitakaworkspace:8Pde05x9c4PsdXHp6nWaZMCY
   webhooks: https://coveralls.io/webhook
-
 language: ruby
 rvm: 2.6.3
 dist: trusty
 services:
-  - postgresql
+- postgresql
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
 before_install:
-  - psql -c 'CREATE DATABASE pitaka_test;' -U postgres
+- psql -c 'CREATE DATABASE pitaka_test;' -U postgres
 install:
-  - bundle install
+- bundle install
 script:
-  - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rspec
-  - bundle exec rubocop
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rspec
+- bundle exec rubocop
+env:
+  secure: XTGsK1vA+8NpDHfQ9OPvL5RN6F6uRhAxolrhxa6nvP40sTTCulvqp6z676Kvkz3EQSWfrzJUbVQoWvF/JAmq1mXZxOerFT4/DmyZhRFZ8y7bLTZOIJG9Mj/g/yL9u9wTICukkUtShBhe3XmY4DQokZECW4xlFlu0ziN2PzOYGYJt0nssz3mdm20MB64+RreC9MSfrV/Hokt1k3IHxpHi5dOKs45Hk4fBO9ZfL+2Y4Nv12bBy0T3TnLKGFcHy9mXpx4YjrFBzfl4MaA7ySe9BByvKSl44Esd0w/GLSb4u6WAt6umjNfnApmVnc3RTPJOboihQOwWXh8bYdVFecEDi6vHUaotgHnvgUVp4wYP/oW9SU2Dc2Jqxa4KNF3v+uyfa6DPh6fEdp1F7eOQ3Sstz/TMsopgid/Leh0U6E1q+UorxwdGmqP/vQfAa2pQNohZfx6ntZl8K2/PcL/fzaCcjYOPJEcq8VWu04rkeX4Pmls8xkCzqKrOskcGSZOIgQ0ny920X2xBzaHI3CnFbuila+OsyceVItyMlwxuYzAfEw8reoBTiYGYeVv07c7PDpAxAOyEn6JA6ve33n9gmafSrlUZv3/epL5eaFi9XWIB02BOI73dw7RHWitLxcxVSn79ILrXBfUSdT+GUW5xxGcGAUMzi9rxgH5k/4BxL29Ucd2U=
