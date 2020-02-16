@@ -16,7 +16,7 @@ module Pitaka
 	
     config.middleware.insert_before 0, Rack::Cors do
 	  puts 123
-	  puts Rails.application.credentials[Rails.env.to_sym][:allowed_origins]
+	  puts Rails.application.credentials[Rails.env.to_sym]
       allow do
         origins Rails.application.credentials[Rails.env.to_sym][:allowed_origins]
         resource '*',
