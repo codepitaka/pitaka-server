@@ -22,7 +22,7 @@ module PermittedHosts
       config.hosts.push host_rspec
 
       host_review = server_host_for_review_app
-	  config.hosts.push host_review
+      config.hosts.push host_review
     end
   end
 end
@@ -38,7 +38,7 @@ end
 
 def server_host_for_review_app
   raise 'Environment variable HEROKU_PR_NUMBER not found.' if ENV['HEROKU_PR_NUMBER'].nil?
-  
+
   ENV['PITAKA_SERVER_HOST'] = ENV['HEROKU_APP_NAME'] + '.herokuapp.com'
   host = ENV['PITAKA_SERVER_HOST']
   host
