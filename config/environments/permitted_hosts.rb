@@ -18,13 +18,13 @@ module PermittedHosts
 
   def self.test
     Rails.application.configure do
-	  puts 123
-	  puts ENV['HOST']
       host_rspec = server_host_for_rspec
       config.hosts.push host_rspec
 
       host_review = server_host_for_review_app
-      config.hosts.push host_review
+      puts 123 
+	  puts host_review
+	  config.hosts.push host_review
     end
   end
 end
