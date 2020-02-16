@@ -22,8 +22,6 @@ module PermittedHosts
       config.hosts.push host_rspec
 
       host_review = server_host_for_review_app
-      puts 123 
-	  puts Rails.env.to_sym
 	  config.hosts.push host_review
     end
   end
