@@ -23,7 +23,7 @@ module PermittedHosts
 
       host_review = server_host_for_review_app
       puts 123 
-	  puts host_review
+	  puts Rails.env.to_sym
 	  config.hosts.push host_review
     end
   end
